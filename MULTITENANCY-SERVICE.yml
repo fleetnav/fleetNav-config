@@ -8,7 +8,7 @@ hibernate:
     username: postgres
     password: postgres
     driver_class: org.postgresql.Driver
-    url: jdbc:postgresql://localhost:5432/fleetNav
+    url: jdbc:postgresql://localhost:5433/fleetNav
   ddl-auto: 
   show_sql: true
   dialect: org.hibernate.dialect.PostgreSQLDialect
