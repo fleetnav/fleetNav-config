@@ -8,7 +8,7 @@ spring:
         - id: FLEETNAV-SERVICE
           uri: lb://FLEETNAV-SERVICE
           predicates:
-            - Path=/api/v1/{tenantId}/**
+            - Path=/api/v1/**
 
         - id: CHAT-SERVICE
           uri: lb://CHAT-SERVICE
