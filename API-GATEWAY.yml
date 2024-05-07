@@ -18,7 +18,7 @@ spring:
         - id: MULTITENANCY-SERVICE
           uri: lb://MULTITENANCY-SERVICE
           predicates:
-            - Path=/api/v1/**
+            - Path=/api/v1/tenants/**
 
 eureka:
   instance:
