@@ -29,8 +29,6 @@ spring:
         ddl-auto: ${hibernate.ddl-auto}
         show_sql: ${hibernate.show_sql}
         multiTenancy: SCHEMA
-        tenant_identifier_resolver: com.fleetNavmultitenantservice.config.hibernate.TenantIdentifierResolver
-        multi_tenant_connection_provider: com.fleetNavmultitenantservice.config.hibernate.SchemaMultiTenantConnectionProvider
 
 eureka:
   instance:
