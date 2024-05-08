@@ -3,15 +3,34 @@ server:
   servlet:
     context-path: /api/v1
 
-spring:
-  datasource:
+hibernate:
+  connection:
     url: jdbc:postgresql://localhost:5433/fleetNav
     username: postgres
     password: postgres
+    driver_class: org.postgresql.Driver
+    ddl-auto: true
+  show_sql: true
+  
+spring:
+  datasource:
+    url: ${hibernate.connection.url}
+    username: ${hibernate.connection.username}
+    password: ${hibernate.connection.password}
+    driverClassName: ${hibernate.connection.driver_class}
   jpa:
-    hibernate:
-      ddl-auto: none
-    show-sql: true
+    show-sql: ${hibernate.show_sql}
+    generate-ddl: false
+    open-in-view: false
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: ${hibernate.dialect}
+        ddl-auto: ${hibernate.ddl-auto}
+        show_sql: ${hibernate.show_sql}
+        multiTenancy: SCHEMA
+        tenant_identifier_resolver: com.fleetNavmultitenantservice.config.hibernate.TenantIdentifierResolver
+        multi_tenant_connection_provider: com.fleetNavmultitenantservice.config.hibernate.SchemaMultiTenantConnectionProvider
 
 eureka:
   instance:
