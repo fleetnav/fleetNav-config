@@ -13,7 +13,7 @@ spring:
         - id: CHAT-SERVICE
           uri: lb://CHAT-SERVICE
           predicates:
-            - Path=/api/v1/websocket/**
+            - Path=/api/v1/chat/**
 
         - id: MULTITENANCY-SERVICE
           uri: lb://MULTITENANCY-SERVICE
