@@ -4,6 +4,16 @@ server:
 spring:
   cloud:
     gateway:
+     globalcors:
+        cors-configurations:
+          '[/**]':
+            allowedOrigins: "*"
+            allowedMethods:
+            - GET
+            - POST
+            - PUT
+            - DELETE
+            - PATCH
       routes:
         - id: FLEETNAV-SERVICE
           uri: lb://FLEETNAV-SERVICE
