@@ -1,35 +1,33 @@
 server:
   port: 8088
-
 spring:
   cloud:
     gateway:
-     globalcors:
+      globalcors:
         cors-configurations:
           '[/**]':
-            allowedOrigins: "*"
+            allowedOrigins: '*'
             allowedMethods:
-            - GET
-            - POST
-            - PUT
-            - DELETE
-            - PATCH
+              - GET
+              - POST
+              - PUT
+              - DELETE
+              - PATCH
       routes:
         - id: FLEETNAV-SERVICE
-          uri: lb://FLEETNAV-SERVICE
+          uri: 'lb://FLEETNAV-SERVICE'
           predicates:
-            - Path=/api/v1/comments/**,/api/v1/costs/**,/api/v1/maintenances/**,/api/v1/nextMaintenances/**,/api/v1/routes/**,/api/v1/stops/**,/api/v1/trips/**,/api/v1/vehicles/**,/api/v1/vehicleStatus/**
-
+            - >-
+              Path=/api/v1/comments/**,/api/v1/costs/**,/api/v1/maintenances/**,/api/v1/nextMaintenances/**,/api/v1/routes/**,/api/v1/stops/**,/api/v1/trips/**,/api/v1/vehicles/**,/api/v1/vehicleStatus/**
         - id: CHAT-SERVICE
-          uri: lb://CHAT-SERVICE
+          uri: 'lb://CHAT-SERVICE'
           predicates:
-            - Path=/api/v1/websocket/**,api/v1/users/**,api/v1/messages/**,api/v1/chat/**
-
+            - >-
+              Path=/api/v1/websocket/**,api/v1/users/**,api/v1/messages/**,api/v1/chat/**
         - id: MULTITENANCY-SERVICE
-          uri: lb://MULTITENANCY-SERVICE
+          uri: 'lb://MULTITENANCY-SERVICE'
           predicates:
             - Path=/api/v1/tenants/**
-
 eureka:
   instance:
     prefer-ip-address: true
@@ -37,4 +35,4 @@ eureka:
     fetch-registry: true
     register-with-eureka: true
     service-url:
-      defaultZone: http://localhost:8761/eureka
+      defaultZone: 'http://localhost:8761/eureka'
