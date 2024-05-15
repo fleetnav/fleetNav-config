@@ -10,12 +10,6 @@ spring:
             allowedMethods: '*'
             allowedHeaders: '*'
       routes:
-        - id: FLEETNAV-SERVICE
-          uri: 'lb://FLEETNAV-SERVICE'
-          predicates:
-            - >-
-              Path=/api/v1/comments/**,/api/v1/costs/**,/api/v1/maintenances/**,/api/v1/nextMaintenances/**,/api/v1/routes/**,/api/v1/stops/**,/api/v1/trips/**,/api/v1/vehicles/**,/api/v1/vehicleStatus/**
-        - id: CHAT-SERVICE
           uri: 'lb:ws://CHAT-SERVICE'
           predicates:
             - >-
@@ -23,7 +17,7 @@ spring:
         - id: MULTITENANCY-SERVICE
           uri: 'lb://MULTITENANCY-SERVICE'
           predicates:
-            - Path=/api/v1/tenants/**
+            - Path=/api/v1/**
 eureka:
   instance:
     prefer-ip-address: true
