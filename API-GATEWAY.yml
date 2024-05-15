@@ -10,10 +10,6 @@ spring:
             allowedMethods: '*'
             allowedHeaders: '*'
       routes:
-          uri: 'lb:ws://CHAT-SERVICE'
-          predicates:
-            - >-
-              Path=/api/v1/websocket/**,api/v1/users/**,api/v1/messages/**,api/v1/chat/**
         - id: MULTITENANCY-SERVICE
           uri: 'lb://MULTITENANCY-SERVICE'
           predicates:
