@@ -18,12 +18,12 @@ spring:
         - id: CHAT-SERVICE
           uri: 'lb://CHAT-SERVICE'
           predicates:
-            - Path=/websocket/**,/users/**,/messages/**,/chat/**,/user.addUser,/user.disconnectUser
+            - Path=/socket/v1/**
 
         - id: CHAT-SERVICE
           uri: 'lb:ws://CHAT-SERVICE'
           predicates:
-            - Path=/websocket/**,/users/**,/messages/**,/chat/**,/user.addUser,/user.disconnectUser
+            - Path=/socket/v1/**
 eureka:
   instance:
     prefer-ip-address: true
