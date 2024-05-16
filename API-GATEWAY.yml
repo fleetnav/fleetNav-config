@@ -3,17 +3,27 @@ server:
 spring:
   cloud:
     gateway:
-      globalcors:
-        cors-configurations:
-          '[/**]':
-            allowedOrigins: '*'
-            allowedMethods: '*'
-            allowedHeaders: '*'
+      # globalcors:
+      #   cors-configurations:
+      #     '[/**]':
+      #       allowedOrigins: '*'
+      #       allowedMethods: '*'
+      #       allowedHeaders: '*'
       routes:
         - id: MULTITENANCY-SERVICE
           uri: 'lb://MULTITENANCY-SERVICE'
           predicates:
             - Path=/api/v1/**
+
+        - id: CHAT-SERVICE
+          uri: 'lb://CHAT-SERVICE'
+          predicates:
+            - Path=/websocket/**,/users/**,/messages/**,/chat/**,/user.addUser,/user.disconnectUser
+
+        - id: CHAT-SERVICE
+          uri: 'lb:ws://CHAT-SERVICE'
+          predicates:
+            - Path=/websocket/**,/users/**,/messages/**,/chat/**,/user.addUser,/user.disconnectUser
 eureka:
   instance:
     prefer-ip-address: true
