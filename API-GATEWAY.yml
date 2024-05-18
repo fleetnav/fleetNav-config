@@ -3,25 +3,23 @@ server:
 spring:
   cloud:
     gateway:
-      # globalcors:
-      #   cors-configurations:
-      #     '[/**]':
-      #       allowedOrigins: '*'
-      #       allowedMethods: '*'
-      #       allowedHeaders: '*'
+      globalcors:
+        cors-configurations:
+          "[/**]":
+            allowedOrigins: "*"
+            allowedMethods: "*"
+            allowedHeaders: "*"
       routes:
         - id: MULTITENANCY-SERVICE
-          uri: 'lb://MULTITENANCY-SERVICE'
+          uri: lb://MULTITENANCY-SERVICE
           predicates:
             - Path=/api/v1/**
-
         - id: CHAT-SERVICE
-          uri: 'lb://CHAT-SERVICE'
+          uri: lb://CHAT-SERVICE
           predicates:
             - Path=/socket/v1/**
-
         - id: CHAT-SERVICE
-          uri: 'lb:ws://CHAT-SERVICE'
+          uri: lb:ws://CHAT-SERVICE
           predicates:
             - Path=/socket/v1/**
 eureka:
@@ -31,4 +29,4 @@ eureka:
     fetch-registry: true
     register-with-eureka: true
     service-url:
-      defaultZone: 'http://eureka-server:8761/eureka'
+      defaultZone: http://eureka-server:8761/eureka
