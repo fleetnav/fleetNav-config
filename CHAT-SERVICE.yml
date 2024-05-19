@@ -16,4 +16,4 @@ eureka:
     fetch-registry: true
     register-with-eureka: true
     service-url:
-      defaultZone: http://eureka-server:8761/eureka
+      defaultZone: https://fleetnav-eureka-server-0-0-1.onrender.com/eureka
