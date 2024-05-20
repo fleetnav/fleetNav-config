@@ -6,7 +6,7 @@ server:
 spring:
   data:
     mongodb:
-      uri: mongodb://fleet-dev:fleet-dev01@ac-fo4eobj-shard-00-00.gaxwgxe.mongodb.net:27017,ac-fo4eobj-shard-00-01.gaxwgxe.mongodb.net:27017,ac-fo4eobj-shard-00-02.gaxwgxe.mongodb.net:27017/?replicaSet=atlas-w1x0kw-shard-0&ssl=true&authSource=admin
+      uri: mongodb+srv://fleet-dev:fleet-dev01@chat-db.gaxwgxe.mongodb.net/
       database: fleetNavChat
 
 eureka:
